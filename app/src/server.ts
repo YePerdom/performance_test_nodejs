@@ -8,6 +8,8 @@ import cors from 'cors';
 import { expressjwt } from "express-jwt";
 // Import the Swagger setup function
 import { swaggerDoc } from './config/swagger';
+// Import the authentication routes module from the 'routes' directory.
+import authRoutes from './routes/auth.router';
 
 // Create a new Express application instance
 const app = express();
@@ -28,6 +30,9 @@ app.use(
     path: ["/api/auth/register", "/api/auth/login"],
   })
 );
+
+// Mount the 'authRoutes' router at the '/api/auth' base path.
+app.use("/api/auth", authRoutes);
 
 // Set up Swagger documentation for the app
 swaggerDoc(app);
