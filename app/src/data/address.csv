@@ -1,0 +1,5 @@
+customer_id,address,city,is_active
+1,Calle 45 #67-89,Bogotá,true
+1,Carrera 12 #34-56,Medellín,true
+2,Calle 80 #90-12,Barranquilla,true
+3,Av. Bolívar #199,Cartagena,true

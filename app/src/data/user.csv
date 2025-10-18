@@ -1,0 +1,3 @@
+name,email,password,rol,is_active
+Admin User,admin@fhl.com,$2a$10$Kj8b0pae123456789exampleHash,admin,true
+Analyst User,analyst@fhl.com,$2a$10$Kj8b0pae987654321exampleHash,analista,true
