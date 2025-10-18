@@ -1,0 +1,4 @@
+identification,name,email,is_active
+10100100,Logística SAS,contacto@logisticasas.com,true
+10100101,Comercial del Norte,norte@comercial.com,true
+10100102,Express Solutions,ventas@express.com,true

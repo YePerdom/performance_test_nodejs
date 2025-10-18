@@ -1,0 +1,4 @@
+customer_id,address_id,storehouse_id,status,created_by
+1,1,1,pending,1
+2,3,3,in transit,2
+3,4,2,delivered,1

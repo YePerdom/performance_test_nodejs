@@ -1,0 +1,5 @@
+code,name,description,price,is_active
+P001,Caja de cartón,Caja resistente para embalaje,4500,true
+P002,Palé plástico,Palé reutilizable para transporte,28000,true
+P003,Cinta adhesiva,Ancho 5cm x 50m,3500,true
+P004,Empaque burbuja,Rollo 10m,8000,true
