@@ -1,30 +1,39 @@
 // Import validators from class-validator to enforce data validation
-import { IsBoolean, IsEmail, IsEnum, IsNotEmpty, IsOptional, IsString, Length, MinLength } from 'class-validator';
+import {
+  IsBoolean,
+  IsEmail,
+  IsEnum,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  Length,
+  MinLength,
+} from "class-validator";
 
 // Define an ENUM for user roles
 export enum UserRole {
-  ADMIN = 'admin',    // Administrator role
-  ANALISTA = 'analista', // Analyst role
+  ADMIN = "admin", // Administrator role
+  ANALISTA = "analista", // Analyst role
 }
 
 // ------------------- CREATE USER DTO -------------------
 export class CreateUserDto {
   @IsString()
-  @IsNotEmpty({ message: 'Field name is required.' })
-  @Length(3, 50, { message: 'Name must be between 3 and 50 characters.' })
+  @IsNotEmpty({ message: "Field name is required." })
+  @Length(3, 50, { message: "Name must be between 3 and 50 characters." })
   name: string;
 
-  @IsEmail({}, { message: 'Email format is invalid.' })
-  @IsNotEmpty({ message: 'Field email is required.' })
+  @IsEmail({}, { message: "Email format is invalid." })
+  @IsNotEmpty({ message: "Field email is required." })
   email: string;
 
   @IsString()
-  @IsNotEmpty({ message: 'Field password is required.' })
-  @MinLength(6, { message: 'Password must be at least 6 characters long.' })
+  @IsNotEmpty({ message: "Field password is required." })
+  @MinLength(6, { message: "Password must be at least 6 characters long." })
   password: string;
 
   @IsOptional()
-  @IsEnum(UserRole, { message: 'Role must be either admin or analista.' })
+  @IsEnum(UserRole, { message: "Role must be either admin or analista." })
   rol?: UserRole;
 }
 
@@ -32,53 +41,53 @@ export class CreateUserDto {
 export class UpdateUserDto {
   @IsOptional()
   @IsString()
-  @Length(3, 50, { message: 'Name must be between 3 and 50 characters.' })
+  @Length(3, 50, { message: "Name must be between 3 and 50 characters." })
   name?: string;
 
   @IsOptional()
-  @IsEmail({}, { message: 'Email format is invalid.' })
+  @IsEmail({}, { message: "Email format is invalid." })
   email?: string;
 
   @IsOptional()
   @IsString()
-  @MinLength(6, { message: 'Password must be at least 6 characters long.' })
+  @MinLength(6, { message: "Password must be at least 6 characters long." })
   password?: string;
 
   @IsOptional()
-  @IsEnum(UserRole, { message: 'Role must be either admin or analista.' })
+  @IsEnum(UserRole, { message: "Role must be either admin or analista." })
   rol?: UserRole;
 
   @IsOptional()
-  @IsBoolean({ message: 'is_active must be a boolean value.' })
+  @IsBoolean({ message: "is_active must be a boolean value." })
   is_active?: boolean;
 }
 
 // ------------------- LOGIN USER DTO -------------------
 export class LoginUserDto {
-  @IsEmail({}, { message: 'Email format is invalid.' })
-  @IsNotEmpty({ message: 'Field email is required.' })
+  @IsEmail({}, { message: "Email format is invalid." })
+  @IsNotEmpty({ message: "Field email is required." })
   email: string;
 
   @IsString()
-  @IsNotEmpty({ message: 'Field password is required.' })
+  @IsNotEmpty({ message: "Field password is required." })
   password: string;
 }
 
 // ------------------- GET USER PARAMS DTO -------------------
 export class GetUserParamsDto {
-  @IsNotEmpty({ message: 'ID is required.' })
-  @IsString({ message: 'ID must be a string.' })
+  @IsNotEmpty({ message: "ID is required." })
+  @IsString({ message: "ID must be a string." })
   id!: string;
 }
 
 // ------------------- GET USER QUERY DTO -------------------
 export class GetUserQueryDto {
   @IsOptional()
-  @IsBoolean({ message: 'is_active must be a boolean value.' })
+  @IsBoolean({ message: "is_active must be a boolean value." })
   is_active?: boolean;
 
   @IsOptional()
-  @IsEnum(UserRole, { message: 'Role must be either admin or analista.' })
+  @IsEnum(UserRole, { message: "Role must be either admin or analista." })
   rol?: UserRole;
 }
 
@@ -95,7 +104,7 @@ export class UserResponseDto {
 
 /**
  * Swagger annotations for API documentation:
- * 
+ *
  * - Defines all user-related schemas, including Create, Update, Login, Get params/query, and response DTOs.
  * - Ensures Swagger UI shows clear descriptions, required fields, types, and examples.
  * - Maps the UserRole enum for both validation and documentation.
