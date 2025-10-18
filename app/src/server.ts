@@ -1,17 +1,19 @@
 // app/src/server.ts
 
 // Import the Express framework
-import express from 'express';
+import express from "express";
 // Import the CORS middleware to handle Cross-Origin Resource Sharing
-import cors from 'cors';
+import cors from "cors";
 // Import express-jwt to handle JWT authentication
 import { expressjwt } from "express-jwt";
 // Import the Swagger setup function
-import { swaggerDoc } from './docs/swagger';
-// Import the authentication routes module from the 'routes' directory
-import authRoutes from './routes/auth.router';
+import { swaggerDoc } from "./docs/swagger";
+// Import the authentication routes module from the "routes" directory
+import authRoutes from "./routes/auth.router";
 // Import the routes that handle all Customer-related endpoints
 import customerRoutes from "./routes/customer.router";
+// Import storehouse routes to be used in the main app
+import storehouseRoutes from "./routes/storehouse.router";
 
 // Create a new Express application instance
 const app = express();
@@ -33,10 +35,12 @@ app.use(
   })
 );
 
-// Mount the 'authRoutes' router at the '/api/auth' base path
+// Mount the "authRoutes" router at the "/api/auth" base path
 app.use("/api/auth", authRoutes);
 // Register the Customer routes under the "/api/customers" base path
 app.use("/api/customers", customerRoutes);
+// Mount the storehouse routes under the "/api/storehouse" path in the Express app
+app.use("/api/storehouses", storehouseRoutes);
 
 // Set up Swagger documentation for the app
 swaggerDoc(app);
