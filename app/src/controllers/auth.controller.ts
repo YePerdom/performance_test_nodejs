@@ -58,7 +58,7 @@ export const login = async (req: Request, res: Response) => {
 
         // Generate JWT token with 1-hour expiration
         const token = jwt.sign(
-            { id: user.id_user, name: user.name },
+            { id: user.id_user, name: user.name, rol: user.rol},
             JWT_SECRET,
             { expiresIn: "1h" }
         );

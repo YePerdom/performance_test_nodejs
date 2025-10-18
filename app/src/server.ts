@@ -7,9 +7,11 @@ import cors from 'cors';
 // Import express-jwt to handle JWT authentication
 import { expressjwt } from "express-jwt";
 // Import the Swagger setup function
-import { swaggerDoc } from './config/swagger';
-// Import the authentication routes module from the 'routes' directory.
+import { swaggerDoc } from './docs/swagger';
+// Import the authentication routes module from the 'routes' directory
 import authRoutes from './routes/auth.router';
+// Import the routes that handle all Customer-related endpoints
+import customerRoutes from "./routes/customer.router";
 
 // Create a new Express application instance
 const app = express();
@@ -31,8 +33,10 @@ app.use(
   })
 );
 
-// Mount the 'authRoutes' router at the '/api/auth' base path.
+// Mount the 'authRoutes' router at the '/api/auth' base path
 app.use("/api/auth", authRoutes);
+// Register the Customer routes under the "/api/customers" base path
+app.use("/api/customers", customerRoutes);
 
 // Set up Swagger documentation for the app
 swaggerDoc(app);

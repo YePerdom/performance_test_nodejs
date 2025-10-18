@@ -8,7 +8,6 @@ env/
 
 # MySQL
 *.mysql
-*.sql
 *.sqlite3
 
 # Logs
